@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexa ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9ecf,#ffd6e8);
+    overflow:hidden;
+}
+
+.card{
+    width:340px;
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+    text-align:center;
+    transition:.5s;
+}
+
+.card img{
+    width:100%;
+    height:450px;
+    object-fit:cover;
+}
+
+.nama{
+    font-size:32px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.btn{
+    margin:20px;
+    padding:14px 28px;
+    border:none;
+    border-radius:50px;
+    background:#ff4f8b;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    pointer-events:none;
+    transition:.4s;
+}
+
+.popup.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.box{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    animation:zoom .5s;
+}
+
+@keyframes zoom{
+    from{
+        transform:scale(.5);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.qr{
+    width:220px;
+    margin:15px auto;
+}
+
+.pesan{
+    font-size:18px;
+    margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <!-- GANTI FOTO DI SINI -->
+    <img src="alexa.jpg" alt="Alexa">
+
+    <div class="nama">Alexa ❤️</div>
+
+    <button class="btn" onclick="buka()">
+        Buka Pesan Rahasia
+    </button>
+</div>
+
+<div class="popup" id="popup">
+    <div class="box">
+        <img class="qr"
+        src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=Alexa%20❤️">
+
+        <div class="pesan">
+            Hai Alexa 🌷<br>
+            Kamu spesial dan selalu bikin hari lebih indah ❤️
+        </div>
+
+        <br>
+        <button class="btn" onclick="tutup()">
+            Tutup
+        </button>
+    </div>
+</div>
+
+<script>
+function buka(){
+    document.getElementById("popup").classList.add("show");
+}
+
+function tutup(){
+    document.getElementById("popup").classList.remove("show");
+}
+</script>
+
+</body>
+</html>
